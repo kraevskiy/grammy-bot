@@ -15,6 +15,8 @@ const message = async (ctx: Context): Promise<void> => {
       await sendMarkdown(message.chat.id, res);
       await ctx.reply(en.waitPhotos);
       await sendMedia(message.chat.id, res);
+      await ctx.reply(en.done);
+      await ctx.reply(en.pasteVin);
     } else {
       await ctx.reply(en.error);
     }
