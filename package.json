@@ -1,5 +1,5 @@
 {
-    "name": "grammy-vercel-boilerplate",
+    "name": "grammy-bot",
     "version": "1.0.0",
     "description": "Grammy boilerplate to develop and host telegram bots on Vercel",
     "main": "api/index.ts",
@@ -9,10 +9,6 @@
         "lint": "eslint . --cache --ext .ts,.js",
         "format": "prettier --write 'src/**/*.ts'"
     },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/neumanf/grammy-vercel-boilerplate.git"
-    },
     "keywords": [
         "boilerplate",
         "telegram-bot",
@@ -20,12 +16,7 @@
         "vercel-now",
         "grammy"
     ],
-    "author": "neumanf",
     "license": "MIT",
-    "bugs": {
-        "url": "https://github.com/neumanf/grammy-vercel-boilerplate/issues"
-    },
-    "homepage": "https://github.com/neumanf/grammy-vercel-boilerplate#readme",
     "dependencies": {
         "grammy": "^1.6.1"
     },
