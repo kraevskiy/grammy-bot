@@ -18,7 +18,10 @@
     ],
     "license": "MIT",
     "dependencies": {
-        "grammy": "^1.6.1"
+        "@grammyjs/menu": "^1.1.2",
+        "axios": "^1.2.0",
+        "grammy": "^1.6.1",
+        "node-fetch-commonjs": "^3.2.4"
     },
     "devDependencies": {
         "@types/node": "^17.0.5",
