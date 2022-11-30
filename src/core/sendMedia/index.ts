@@ -1,10 +1,10 @@
 import { en } from "../../translation";
-import { IParseType } from "../../types";
+import { IParseSuccess } from "../../types";
 import bot from "../bot";
 
 export const sendMedia = async (
   chat_id: number | string,
-  data: IParseType
+  data: IParseSuccess
 ): Promise<
   (
     | import("@grammyjs/types/message").Message.PhotoMessage

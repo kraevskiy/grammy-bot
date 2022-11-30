@@ -18,6 +18,7 @@
     ],
     "license": "MIT",
     "dependencies": {
+        "@grammyjs/i18n": "^1.0.1",
         "@grammyjs/menu": "^1.1.2",
         "axios": "^1.2.0",
         "grammy": "^1.6.1",
