@@ -2,7 +2,7 @@ require("dotenv").config();
 
 import bot from "./core/bot";
 import commands from "./commands";
-import { menu } from "./core/menu";
+// import { menu } from "./core/menu";
 
 import { development, production } from "./utils/launch";
 

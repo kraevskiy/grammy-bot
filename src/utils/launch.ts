@@ -2,9 +2,13 @@ import { Bot, Context } from "grammy";
 
 const production = async (bot: Bot<Context>): Promise<void> => {
   try {
+    console.log(1111111);
+    console.log(process.env);
     await bot.api.setWebhook(`${process.env.VERCEL_URL}/api/index`);
     console.log(`[SERVER] Bot starting webhook`);
   } catch (e) {
+    console.log(2222222);
+    console.log(process.env);
     console.error(e);
   }
 };
