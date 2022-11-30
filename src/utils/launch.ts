@@ -1,5 +1,4 @@
 import { Bot, Context } from "grammy";
-// import { MyContext } from "../core/i18n";
 
 const production = async (bot: Bot<Context>): Promise<void> => {
   try {
@@ -13,7 +12,7 @@ const production = async (bot: Bot<Context>): Promise<void> => {
 const development = async (bot: Bot<Context>): Promise<void> => {
   try {
     await bot.api.deleteWebhook();
-    console.log("[SERVER] Bot starting polling");
+    console.log("[SERVER] Bot starting polling!");
     await bot.start();
   } catch (e) {
     console.error(e);

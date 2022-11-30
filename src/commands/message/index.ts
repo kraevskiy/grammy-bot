@@ -2,7 +2,6 @@ import { en } from "../../translation";
 import { parseInfo } from "../../helpers/parse.info";
 import { sendMarkdown } from "../../core/sendMarkdown";
 import { sendMedia } from "../../core/sendMedia";
-// import { MyContext } from "../../core/i18n";
 import { markdownLink } from "../../helpers/markdown.link";
 import { Context } from "grammy";
 

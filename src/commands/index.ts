@@ -1,5 +1,4 @@
 import { Composer } from "grammy";
-// import { MyContext } from "../core/i18n";
 
 import start from "./start";
 import help from "./help";

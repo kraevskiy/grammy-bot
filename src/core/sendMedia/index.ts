@@ -1,4 +1,3 @@
-import { en } from "../../translation";
 import { IParseSuccess } from "../../types";
 import bot from "../bot";
 
