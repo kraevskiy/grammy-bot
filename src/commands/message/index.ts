@@ -2,10 +2,11 @@ import { en } from "../../translation";
 import { parseInfo } from "../../helpers/parse.info";
 import { sendMarkdown } from "../../core/sendMarkdown";
 import { sendMedia } from "../../core/sendMedia";
-import { MyContext } from "../../core/i18n";
+// import { MyContext } from "../../core/i18n";
 import { markdownLink } from "../../helpers/markdown.link";
+import { Context } from "grammy";
 
-const message = async (ctx: MyContext): Promise<void> => {
+const message = async (ctx: Context): Promise<void> => {
   const message = ctx.message;
 
   if (message && message.text?.length !== 17) {
