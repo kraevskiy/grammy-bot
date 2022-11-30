@@ -7,7 +7,7 @@ import { menu } from "./core/menu";
 import { development, production } from "./utils/launch";
 
 bot.use(commands);
-bot.use(menu);
+// bot.use(menu);
 
 process.env.NODE_ENV === "development" ? development(bot) : production(bot);
 
