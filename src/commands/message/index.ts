@@ -1,5 +1,5 @@
 import { en } from "../../translation";
-import { parseInfo } from "../../helpers/parse.info";
+// import { parseInfo } from "../../helpers/parse.info";
 import { sendMarkdown } from "../../core/sendMarkdown";
 import { sendMedia } from "../../core/sendMedia";
 import { markdownLink } from "../../helpers/markdown.link";
@@ -13,7 +13,7 @@ const message = async (ctx: Context): Promise<void> => {
     await ctx.reply(en.errorVin);
   } else if (message?.text) {
     await ctx.reply(en.waitPls);
-    const res = await parseInfo(message.text, ctx);
+    const res = null; //await parseInfo(message.text, ctx);
     if (res) {
       await sendMarkdown(message.chat.id, res as IParseSuccess);
       await ctx.reply(en.waitPhotos);
