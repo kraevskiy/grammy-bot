@@ -10,6 +10,6 @@ const composer = new Composer();
 composer.command("start", start);
 composer.command("hello", hello);
 composer.command("help", help);
-// composer.on("message", message);
+composer.on("message", message);
 
 export default composer;
