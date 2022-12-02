@@ -3,12 +3,11 @@ import {
   IParseSuccess,
   IParseTypeTable,
   IParseTypeTableContent,
+  MyContext,
   TParseData,
 } from "../types";
-import { Context } from "grammy";
-import { en } from "../translation";
 import fetch from "node-fetch-commonjs";
-import constants, { ERROR_TEXT_IN_DOM } from "../commands/help/constants";
+import { constants, ERROR_TEXT_IN_DOM } from "../helpers";
 import { JSDOM } from "jsdom";
 
 const getWebsiteContent = async (vin: string): Promise<string> => {
@@ -75,7 +74,7 @@ const parseDom = (stringToGenDom: string): TParseData | string => {
 
 export const parseInfo = async (
   vin: string,
-  ctx: Context
+  ctx: MyContext
 ): Promise<IParseSuccess | IParseError | null> => {
   const content = await getWebsiteContent(vin);
   const domParsed = parseDom(content);
@@ -86,7 +85,7 @@ export const parseInfo = async (
       return { vin, data: domParsed };
     }
   } else {
-    await ctx.reply(en.error);
+    await ctx.reply(ctx.t("error"));
     return null;
   }
 };

@@ -1,3 +1,6 @@
+import { I18nFlavor } from "@grammyjs/i18n";
+import { Context, SessionFlavor } from "grammy";
+
 export type IParseTypeTableContent = {
   name: string;
   value: string;
@@ -25,3 +28,9 @@ export interface IParseError extends TParseAnswer {
 export interface IParseSuccess extends TParseAnswer {
   data: TParseData;
 }
+
+export interface SessionData {
+  __language_code?: string;
+}
+
+export type MyContext = Context & SessionFlavor<SessionData> & I18nFlavor;

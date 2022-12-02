@@ -1,6 +1,6 @@
 import { IParseSuccess } from "../../types";
 import bot from "../bot";
-import { markdownHtml } from "../../helpers/markdown.html";
+import { markdownHtml } from "../../helpers";
 import { Message } from "grammy/out/types";
 
 export const sendMarkdown = async (

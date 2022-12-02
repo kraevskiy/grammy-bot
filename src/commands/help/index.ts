@@ -1,10 +1,8 @@
-import { Context } from "grammy";
-import { menu } from "../../core/menu";
-import { en } from "../../translation";
+import { menuCommand } from "../../core/menus";
+import { MyContext } from "../../types";
 
-const help = async (ctx: Context): Promise<void> => {
-  await ctx.reply(en.do, { reply_markup: menu });
-  // await ctx.reply(en.do);
+const help = async (ctx: MyContext): Promise<void> => {
+  await ctx.reply(ctx.t("do"), { reply_markup: menuCommand });
 };
 
 export default help;

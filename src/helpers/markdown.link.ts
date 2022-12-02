@@ -1,5 +1,5 @@
-import { en } from "../translation";
+import { MyContext } from "../types";
 
-export const markdownLink = (url: string) => `
-  <a href="${url}">${en.downloadAllPhotos}</a>
+export const markdownLink = (url: string, ctx: MyContext) => `
+  <a href="${url}">${ctx.t("downloadAllPhotos")}</a>
 `;
