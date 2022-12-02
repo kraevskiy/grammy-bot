@@ -1,4 +1,3 @@
-import { SUPPORT_CHAT_ID } from "./helpers/constants";
 import {
   Bot,
   BotError,
@@ -15,7 +14,7 @@ import { i18n } from "./i18n";
 
 const onStart = async (botInfo: UserFromGetMe) => {
   await bot.api.sendMessage(
-    SUPPORT_CHAT_ID,
+    process.env.SUPPORT_CHAT_ID as string,
     `
 ✅ Bot Start: <b>${botInfo.first_name}</b>
 ▶️ <b>id:</b> ${botInfo.id}
@@ -35,7 +34,7 @@ const catchHandler = async (
 ) => {
   const ctx = err.ctx;
   await bot.api.sendMessage(
-    SUPPORT_CHAT_ID,
+    process.env.SUPPORT_CHAT_ID as string,
     `
 ‼️ Bot ERROR: <b>${bot.botInfo.first_name}</b>
 ▶️ <b>id:</b> ${bot.botInfo.id}

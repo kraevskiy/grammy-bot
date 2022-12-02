@@ -17,8 +17,6 @@ export const constants: TConstants = {
   photosDownloadSelector: ".photos-controls .photos-controls__btn",
 };
 
-export const SUPPORT_CHAT_ID = "-728174226";
-
 export const MENUS_ID = {
   COMMAND_MENU: "my-command-menu",
   LANGUAGE_MENU: "my-language-menu",
