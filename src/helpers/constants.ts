@@ -25,3 +25,28 @@ export const MENUS_ID = {
 export const ERROR_TEXT_IN_DOM_TO_KEY_TRANSLATE = {
   "Vehicle Not found": "vehicle_not_found",
 };
+
+export const TEXT_IN_DOM_TO_KEY_TRANSLATE = {
+  "Vehicle details": "text_vehicle_details",
+  "Description": "text_description",
+  "Color": "text_color",
+  "VIN number": "text_vin_number",
+  "Keys": "text_keys",
+  "Auction": "text_auction",
+  "City": "text_city",
+  "LOT": "text_lot",
+  "Delivered to warehouse": "text_delivered_to_warehouse",
+  "Buyer number": "text_buyer_number",
+  "Date": "text_date",
+  "Promised to be picked up": "text_promised_to_be_picked_up",
+  "Promised to be delivered": "text_promised_to_be_delivered",
+  "Container details": "text_container_details",
+  "Point of loading": "text_point_of_loading",
+  "Container number": "text_container_number",
+  "Booking number": "text_booking_number",
+  "Destination port": "text_destination_port",
+  "Loading date": "text_loading_date",
+  "Expected Arrival Date": "text_expected_arrival_date",
+  "Arrival Date": "text_arrival_date",
+  "Unloading date": "text_unloading_date",
+};

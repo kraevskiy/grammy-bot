@@ -16,7 +16,7 @@ const message = async (ctx: MyContext): Promise<void> => {
         await ctx.reply(ctx.t(ERROR_TEXT_IN_DOM_TO_KEY_TRANSLATE[res.error]));
         await ctx.reply(ctx.t("pasteVin"));
       } else {
-        await sendMarkdown(message.chat.id, res);
+        await sendMarkdown(message.chat.id, res, ctx);
         await ctx.reply(ctx.t("waitPhotos"));
         await sendMedia(message.chat.id, res);
         if (res.data.allPhotos) {
