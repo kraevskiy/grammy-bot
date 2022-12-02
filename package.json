@@ -6,6 +6,7 @@
     "scripts": {
         "build": "tsc",
         "dev": "nodemon src/index.ts",
+        "start": "NODE_ENV=production node public/src/index.js",
         "lint": "eslint . --cache --ext .ts,.js",
         "format": "prettier --write 'src/**/*.ts'"
     },
