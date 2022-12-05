@@ -31,6 +31,9 @@ export interface IParseSuccess extends TParseAnswer {
 
 export interface SessionData {
   __language_code?: string;
+  chatId: number | undefined;
+  photos: string[];
+  allPhotos: string | null;
 }
 
 export type MyContext = Context & SessionFlavor<SessionData> & I18nFlavor;

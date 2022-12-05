@@ -1,9 +1,8 @@
-import { IParseSuccess } from "../../types";
 import bot from "../bot";
 
 export const sendMedia = async (
   chat_id: number | string,
-  data: IParseSuccess
+  data: string[]
 ): Promise<
   (
     | import("@grammyjs/types/message").Message.PhotoMessage
@@ -14,6 +13,6 @@ export const sendMedia = async (
 > => {
   return await bot.api.sendMediaGroup(
     chat_id,
-    data.data.photos.slice(0, 9).map((p) => ({ type: "photo", media: p }))
+    data.slice(0, 9).map((p) => ({ type: "photo", media: p }))
   );
 };

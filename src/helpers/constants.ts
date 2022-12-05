@@ -20,6 +20,7 @@ export const constants: TConstants = {
 export const MENUS_ID = {
   COMMAND_MENU: "my-command-menu",
   LANGUAGE_MENU: "my-language-menu",
+  SELECT_PHOTOS_MENU: "my-select-photos-menu"
 };
 
 export const ERROR_TEXT_IN_DOM_TO_KEY_TRANSLATE = {
@@ -50,3 +51,5 @@ export const TEXT_IN_DOM_TO_KEY_TRANSLATE = {
   "Arrival Date": "text_arrival_date",
   "Unloading date": "text_unloading_date",
 };
+
+

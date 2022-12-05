@@ -1,79 +1,20 @@
-import {
-  Bot,
-  BotError,
-  GrammyError,
-  HttpError,
-  session,
-} from "grammy";
 import bot from "./core/bot";
-import commands from "./commands";
-import { menuCommand, menuLanguage } from "./core/menus";
-import { UserFromGetMe } from "grammy/out/types";
-import { MyContext } from "./types";
+import commands, { MyCommands } from "./commands";
+import { menuCommand, menuLanguage, menuSelectByPhotos } from "./core/menus";
 import { i18n } from "./i18n";
-
-const onStart = async (botInfo: UserFromGetMe) => {
-  await bot.api.sendMessage(
-    process.env.SUPPORT_CHAT_ID as string,
-    `
-✅ Bot Start: <b>${botInfo.first_name}</b>
-▶️ <b>id:</b> ${botInfo.id}
-🔗 <b>username:</b> @${botInfo.username}
-💻 <b>author:</b> @illia_kraievskyi
-🕗 ${new Date()}
-➖➖➖➖➖➖➖➖➖➖➖
-`,
-    { parse_mode: "HTML" }
-  );
-};
-
-const catchHandler = async (
-  bot: Bot<MyContext>,
-  err: BotError<MyContext>,
-  msg?: unknown
-) => {
-  const ctx = err.ctx;
-  await bot.api.sendMessage(
-    process.env.SUPPORT_CHAT_ID as string,
-    `
-‼️ Bot ERROR: <b>${bot.botInfo.first_name}</b>
-▶️ <b>id:</b> ${bot.botInfo.id}
-🔗 <b>username:</b> @${bot.botInfo.username}
-💻 <b>author:</b> @illia_kraievskyi
-🕗 ${new Date()}
-❌ Error while handling update ${ctx.update.update_id}:
-    `
-  );
-  const e = err.error;
-  if (e instanceof GrammyError) {
-    console.error("Error in request:", e.description);
-  } else if (e instanceof HttpError) {
-    console.error("Could not contact Telegram:", e);
-  } else {
-    console.error("Unknown error:", e);
-  }
-};
+import { errorHandler, startHandler, session } from "./helpers";
 
 export async function init(): Promise<void> {
-  bot.use(
-    session({
-      initial: () => {
-        return {};
-      },
-    })
-  );
+  bot.use(session);
   bot.use(i18n);
   bot.use(menuCommand);
+  bot.use(menuSelectByPhotos);
   bot.use(menuLanguage);
   bot.use(commands);
-
+  await bot.api.setMyCommands(MyCommands,{ scope: { type: "all_private_chats" } });
   bot.start({
-    onStart,
+    // onStart: startHandler
   });
 
-  bot.catch(async (err) => {
-    const ctx = err.ctx;
-    await catchHandler(bot, err);
-    console.error(`Error while handling update ${ctx.update.update_id}:`);
-  });
+  bot.catch(async (err) => errorHandler(bot, err));
 }

@@ -1,9 +1,12 @@
 import { parseInfo, markdownLink, ERROR_TEXT_IN_DOM_TO_KEY_TRANSLATE } from "../../helpers";
 import { sendMarkdown } from "../../core/sendMarkdown";
-import { sendMedia } from "../../core/sendMedia";
 import { MyContext } from "../../types";
+import { menuSelectByPhotos } from "../../core/menus";
+import { Composer } from "grammy";
 
-const message = async (ctx: MyContext): Promise<void> => {
+export const message = new Composer<MyContext>();
+
+message.on("message", async (ctx: MyContext): Promise<void> => {
   const message = ctx.message;
 
   if (message && message.text?.length !== 17) {
@@ -17,15 +20,24 @@ const message = async (ctx: MyContext): Promise<void> => {
         await ctx.reply(ctx.t("pasteVin"));
       } else {
         await sendMarkdown(message.chat.id, res, ctx);
-        await ctx.reply(ctx.t("waitPhotos"));
-        await sendMedia(message.chat.id, res);
         if (res.data.allPhotos) {
-          await ctx.reply(markdownLink(res.data.allPhotos, ctx), {
-            parse_mode: "HTML",
-          });
+          ctx.session.allPhotos = res.data.allPhotos;
+          ctx.session.photos = res.data.photos;
+          await ctx.reply(ctx.t("text_select_by_photos"), { reply_markup: menuSelectByPhotos});
+        } else {
+          await ctx.reply(ctx.t("done"));
+          await ctx.reply(ctx.t("pasteVin"));
         }
-        await ctx.reply(ctx.t("done"));
-        await ctx.reply(ctx.t("pasteVin"));
+        // await ctx.reply(ctx.t("waitPhotos"));
+        // await sendMedia(message.chat.id, res);
+        // if (res.data.allPhotos) {
+        //   await ctx.reply(markdownLink(res.data.allPhotos, ctx), {
+        //     parse_mode: "HTML",
+        //   });
+        // }
+        //
+        // await ctx.reply(ctx.t("done"));
+        // await ctx.reply(ctx.t("pasteVin"));
       }
     } else {
       await ctx.reply(ctx.t("error"));
@@ -33,6 +45,4 @@ const message = async (ctx: MyContext): Promise<void> => {
   } else {
     await ctx.reply(ctx.t("error"));
   }
-};
-
-export default message;
+});

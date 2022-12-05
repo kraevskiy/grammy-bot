@@ -1,16 +1,26 @@
 import { Composer } from "grammy";
 import { MyContext } from "../types";
+import { BotCommand } from "grammy/out/types.node";
 
-import start from "./start";
-import help from "./help";
-import message from "./message";
-import hello from "./hello";
+import { hello } from "./hello";
+import { start } from "./start";
+import { help } from "./help";
+import { message } from "./message";
+import { language } from "./language";
 
-const composer = new Composer<MyContext>();
+const commands = new Composer<MyContext>();
 
-composer.command("start", start);
-composer.command("hello", hello);
-composer.command("help", help);
-composer.on("message", message);
+commands
+  .use(hello)
+  .use(start)
+  .use(help)
+  .use(language)
+  .use(message);
 
-export default composer;
+export default commands;
+
+export const MyCommands: readonly BotCommand[] = [
+  { command: "start", description: "Start" },
+  { command: "help", description: "Help" },
+  { command: "language", description: "Change language" },
+];

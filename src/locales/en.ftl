@@ -36,3 +36,6 @@ text_loading_date = Loading date
 text_expected_arrival_date = Expected Arrival Date
 text_arrival_date = Arrival Date
 text_unloading_date = Unloading date
+text_select_by_photos = Upload photos?
+text_select_by_photos_yes = ✅ Yes
+text_select_by_photos_no = ❌ No
