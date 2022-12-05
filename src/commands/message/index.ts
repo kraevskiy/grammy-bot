@@ -8,6 +8,7 @@ export const message = new Composer<MyContext>();
 
 message.on("message", async (ctx: MyContext): Promise<void> => {
   const message = ctx.message;
+  ctx.session.chatId = message?.chat.id;
 
   if (message && message.text?.length !== 17) {
     await ctx.reply(ctx.t("errorVin"));
@@ -28,16 +29,6 @@ message.on("message", async (ctx: MyContext): Promise<void> => {
           await ctx.reply(ctx.t("done"));
           await ctx.reply(ctx.t("pasteVin"));
         }
-        // await ctx.reply(ctx.t("waitPhotos"));
-        // await sendMedia(message.chat.id, res);
-        // if (res.data.allPhotos) {
-        //   await ctx.reply(markdownLink(res.data.allPhotos, ctx), {
-        //     parse_mode: "HTML",
-        //   });
-        // }
-        //
-        // await ctx.reply(ctx.t("done"));
-        // await ctx.reply(ctx.t("pasteVin"));
       }
     } else {
       await ctx.reply(ctx.t("error"));
