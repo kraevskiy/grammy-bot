@@ -1,43 +1,44 @@
 {
-    "name": "grammy-bot",
-    "version": "1.0.0",
-    "description": "Grammy boilerplate to develop and host telegram bots on Vercel",
-    "main": "api/index.ts",
-    "scripts": {
-        "build": "tsc",
-        "dev": "nodemon src/index.ts",
-        "start": "NODE_ENV=production node public/index.js",
-        "lint": "eslint . --cache --ext .ts,.js",
-        "format": "prettier --write 'src/**/*.ts'"
-    },
-    "keywords": [
-        "boilerplate",
-        "telegram-bot",
-        "vercel",
-        "vercel-now",
-        "grammy"
-    ],
-    "license": "MIT",
-    "dependencies": {
-        "@grammyjs/i18n": "^1.0.1",
-        "@grammyjs/menu": "^1.1.2",
-        "axios": "^1.2.0",
-        "dotenv": "^10.0.0",
-        "express": "^4.18.2",
-        "grammy": "^1.6.1",
-        "jsdom": "^20.0.3",
-        "node-fetch-commonjs": "^3.2.4"
-    },
-    "devDependencies": {
-        "@types/node": "^17.0.5",
-        "@typescript-eslint/eslint-plugin": "^5.8.1",
-        "@typescript-eslint/parser": "^5.8.1",
-        "eslint": "^8.5.0",
-        "eslint-config-prettier": "^8.3.0",
-        "eslint-plugin-prettier": "^4.0.0",
-        "nodemon": "^2.0.15",
-        "prettier": "^2.5.1",
-        "ts-node": "^10.4.0",
-        "typescript": "^4.5.4"
-    }
+  "name": "grammy-bot",
+  "version": "1.0.0",
+  "description": "Grammy boilerplate to develop and host telegram bots on Vercel",
+  "main": "api/index.ts",
+  "scripts": {
+    "build": "tsc",
+    "dev": "nodemon src/index.ts",
+    "start": "NODE_ENV=production node public/index.js",
+    "lint": "eslint . --cache --ext .ts,.js",
+    "format": "prettier --write 'src/**/*.ts'"
+  },
+  "keywords": [
+    "boilerplate",
+    "telegram-bot",
+    "vercel",
+    "vercel-now",
+    "grammy"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "@grammyjs/i18n": "^1.0.1",
+    "@grammyjs/menu": "^1.1.2",
+    "axios": "^1.2.0",
+    "dotenv": "^10.0.0",
+    "express": "^4.18.2",
+    "grammy": "^1.6.1",
+    "jsdom": "^20.0.3",
+    "node-fetch-commonjs": "^3.2.4",
+    "winston": "^3.8.2"
+  },
+  "devDependencies": {
+    "@types/node": "^17.0.5",
+    "@typescript-eslint/eslint-plugin": "^5.8.1",
+    "@typescript-eslint/parser": "^5.8.1",
+    "eslint": "^8.5.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "nodemon": "^2.0.15",
+    "prettier": "^2.5.1",
+    "ts-node": "^10.4.0",
+    "typescript": "^4.5.4"
+  }
 }
