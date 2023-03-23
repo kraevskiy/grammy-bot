@@ -3,7 +3,9 @@ import { MyContext } from "../../types";
 import { markdownLink, MENUS_ID } from "../../helpers";
 import { sendMedia } from "../sendMedia";
 
-export const menuSelectByPhotos = new Menu<MyContext>(MENUS_ID.SELECT_PHOTOS_MENU)
+export const menuSelectByPhotos = new Menu<MyContext>(
+  MENUS_ID.SELECT_PHOTOS_MENU
+)
   .text(
     (ctx) => ctx.t("text_select_by_photos_yes"),
     async (ctx) => {
@@ -15,7 +17,7 @@ export const menuSelectByPhotos = new Menu<MyContext>(MENUS_ID.SELECT_PHOTOS_MEN
         }
         if (allPhotos) {
           await ctx.reply(markdownLink(allPhotos, ctx), {
-            parse_mode: "HTML"
+            parse_mode: "HTML",
           });
         }
         await ctx.reply(ctx.t("done"));
@@ -36,16 +38,18 @@ export const menuSelectByPhotos = new Menu<MyContext>(MENUS_ID.SELECT_PHOTOS_MEN
 export const menuCommand = new Menu<MyContext>(MENUS_ID.COMMAND_MENU)
   .text(
     (ctx) => ctx.t("infoByVin"),
-    (ctx, next) => ctx.reply(ctx.t("pasteVin")))
+    (ctx) => ctx.reply(ctx.t("pasteVin"))
+  )
   .row();
-
 
 const handlerSelectLanguage = async (ctx: MyContext): Promise<void> => {
   await ctx.reply(ctx.t("checkLang"));
   await ctx.reply(ctx.t("do"), { reply_markup: menuCommand });
 };
 
-export const menuLanguage = new Menu<MyContext>(MENUS_ID.LANGUAGE_MENU, {autoAnswer: false})
+export const menuLanguage = new Menu<MyContext>(MENUS_ID.LANGUAGE_MENU, {
+  autoAnswer: false,
+})
   .text(
     (ctx) => ctx.t("en"),
     async (ctx) => {

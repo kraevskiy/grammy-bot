@@ -11,10 +11,11 @@ export async function init(): Promise<void> {
   bot.use(menuSelectByPhotos);
   bot.use(menuLanguage);
   bot.use(commands);
-  await bot.api.setMyCommands(MyCommands,{ scope: { type: "all_private_chats" } });
-  bot.start({
-    // onStart: startHandler
+  await bot.api.setMyCommands(MyCommands, {
+    scope: { type: "all_private_chats" },
   });
-
+  bot.start({
+    onStart: startHandler,
+  });
   bot.catch(async (err) => errorHandler(bot, err));
 }
